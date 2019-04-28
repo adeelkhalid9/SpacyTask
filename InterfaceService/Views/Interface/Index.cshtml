@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 align="center">Example of using Spacy</h2>
+
+<hr>
+
+@using (Html.BeginForm("Process", "Interface", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <br><br>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" readonly>
+                        <div class="input-group-btn">
+                            <span class="fileUpload btn btn-success">
+                                <span class="upl" id="upload">Upload single file</span>
+                                <input type="file" class="upload up" id="up" name="file" runat="server" enctype="multipart/form-data" onchange="readURL(this);" />
+                            </span><!-- btn-orange -->
+                        </div><!-- btn -->
+                    </div><!-- group -->
+                </div><!-- form-group -->
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <div align="center">
+        <input type="submit" value="Send" class="btn btn-success" size="300"/>
+    </div>
+}
+
+
+

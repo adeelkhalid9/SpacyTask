@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  interfaceservice:
+    image: interfaceservice
+    build:
+      context: .
+      dockerfile: InterfaceService/Dockerfile
+    ports:
+      - "5001:80"
+
+  testrecognitionservice:
+    image: textrecognitionservice
+    build:
+      context: ./TextRecognitionService
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+
+  spacyservice:
+    image: spacyservice
+    build:
+      context: ./SpacyService
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5000"

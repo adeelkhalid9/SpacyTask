@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Process";
+    List<List<string>> entities = (List<List<string>>)ViewData["entities"];
+}
+
+<br /><br />
+
+<div align="right">
+    <div align="right" class="btn btn-info">
+        <a asp-action="Index" title="Index">Try another document</a>
+    </div>
+</div>
+
+<h2 align="center">Name Entity Recognition Results using Spacy</h2>
+
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive" data-pattern="priority-columns">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th data-priority="1">NAME</th>
+                            <th data-priority="2">DEFINITION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var entity in entities)
+                        {
+                            <tr>
+                                <td>@entity[0]</td>
+                                <td>@entity[1]</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" class="text-center">Data retrieved Using English NER Module</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div><!--end of .table-responsive-->
+        </div>
+    </div>
+</div>
